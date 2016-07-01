@@ -1,38 +1,37 @@
 
-var weather;
-var api ='http://api.openweathermap.org/data/2.5/weather?q='
-//var city ='London,uk'
-var ID ='&appid=08094006fe33809ac130834ed8c4e7e0'
-var input;
+var lineX = 0;
+var url ="http://api.open-notify.org/iss-now.json";
+var issX, issY;
 
 
 function setup(){
-  createCanvas(800,800);
-  var button = select ('#Submit');
-  input = select('#City');
-  button.mousePressed(weatherRequest);
-
+  createCanvas(600,600);
+  
+  setInterval(requestISS, 1000);
 }
 
-function weatherRequest(){
-
-  var url = api+ input.value() + ID;
-  loadJSON(url, gotData);
-
+function requestISS(){
+  loadJSON(url,gotData,'jsonp');
 }
+
 
 function gotData(data){
-  //println(data);
-  weather = data;
-
+  var lat = data.iss_position.latitude;
+  var long = data.iss_position.longitude;
+  issX = map(lat, -45, 0, 0, width);
+  issY = map(long, 150, 180, 0, height);
 }
 
 function draw(){
-  background(0);
-  if(weather){
-    fill(255);
-    ellipse(300,400,weather.main.temp,weather.main.temp);
-    ellipse(600,400,weather.main.humidity,weather.main.humidity);
+  background(51);
+  stroke(255);
+  fill(255);
+  ellipse(issX, issY, 24, 24);
+  line(lineX, 0, lineX, height);
+  lineX = lineX +5;
+  if(lineX>width){
+    lineX = 0;
   }
+
 }
 
