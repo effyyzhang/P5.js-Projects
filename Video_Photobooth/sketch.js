@@ -6,6 +6,7 @@ var counter = 0;
 var go = false;
 
 function setup() {
+  frameRate(30);
   createCanvas(640, 480);
   background(51);
   video = createCapture(VIDEO, ready);
@@ -29,6 +30,8 @@ function draw() {
   var h = 60;
   var x = 0;
   var y = 0;
+  
+
   for (var i = 0; i < snapshots.length; i++){
     var index = (i+frameCount)%snapshots.length;
     image(snapshots[i],x,y,w,h);
