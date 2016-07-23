@@ -1,0 +1,52 @@
+.container{
+	width: 640px;
+	height: 480px;
+	top:0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.back{
+	width:640px;
+	height: 480px;
+	top:0;
+	z-index: -1000;
+	background: red;
+	display: block;
+	position: fixed;
+}
+
+.middle{
+	width:640px;
+	height: 400px;
+	top:40px;
+	z-index:0;
+	background: yellow;
+	display: block;
+	position: fixed;
+}
+
+.front{
+	width: 240px;
+	height: 240px;
+	top: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	z-index:1000;
+	background: blue;
+	display: block;
+	position: relative;
+	border-radius: 120px;
+}
+
+.mirror1{
+	width:640px;
+	height: 480px;
+	top:0;
+	z-index: -1000;
+	background: red;
+	display: block;
+	position: fixed;
+
+}
